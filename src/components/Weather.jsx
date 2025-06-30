@@ -67,10 +67,7 @@ function Weather() {
   return (
     <>
       <Search handleCity={handleCity} />      
-      {
-        isLoading && (
-            <p style={{marginLeft: 0, marginRight: 0}}>Loading data...</p>
-        )}        
+        <p style={{marginLeft: 0, marginRight: 0}}>Loading data...</p>      
         {
         showCard && (
           <div className='weather-cards'>
