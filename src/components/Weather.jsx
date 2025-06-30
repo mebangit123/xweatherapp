@@ -34,7 +34,7 @@ function Weather() {
   const [humidity, setHumidity] = useState('');
   const [condition, setCondition] = useState('');
   const [windspeed, setWindspeed] = useState('');
-  const [isLoading,setIsloading] = useState(true);
+  const [isLoading,setIsloading] = useState(false);
   const [showCard, setShowCard] = useState(false);
 
   const URL = 'https://api.weatherapi.com/v1/current.json'
@@ -66,24 +66,20 @@ function Weather() {
   }
   return (
     <>
-      <Search handleCity={handleCity} />
+      <Search handleCity={handleCity} />      
       {
-        city && (
-          isLoading ? (
+        isLoading && (
             <p style={{marginLeft: 0, marginRight: 0}}>Loading data...</p>
-          ) 
-          : 
-          ( 
-            showCard && (
-              <div className='weather-cards'>
-                <WeatherCard weather={temperature} title='Temperature' />
-                <WeatherCard weather={humidity} title='Humidity' />
-                <WeatherCard weather={condition} title='Condition' />
-                <WeatherCard weather={windspeed} title='Wind Speed' />
-              </div>
-            )             
-          )
-        )          
+        )}        
+        {
+        showCard && (
+          <div className='weather-cards'>
+            <WeatherCard weather={temperature} title='Temperature' />
+            <WeatherCard weather={humidity} title='Humidity' />
+            <WeatherCard weather={condition} title='Condition' />
+            <WeatherCard weather={windspeed} title='Wind Speed' />
+          </div>
+        )       
       }     
     </>    
   )
