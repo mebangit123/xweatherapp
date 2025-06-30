@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import styles from './Weather.module.css'
+import'./Weather.css'
 import axios from 'axios'
 
 function WeatherCard({weather,title}) {
   return (
-    <div className={styles['weather-card']}>
+    <div className='weather-card'>
       <h1>{title}</h1>
       <p>{weather}</p>
     </div>
@@ -20,7 +20,7 @@ function Search({handleCity}) {
   }
   return (
     <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
-      <div className={styles.searchContainer}>
+      <div className='searchContainer'>
         <input type="text"  placeholder='Enter city name' onChange={(e) => setCity(e.target.value)} />
         <button type='submit' onClick={doSearch}>Search</button>
       </div>      
@@ -67,15 +67,16 @@ function Weather() {
   return (
     <>
       <Search handleCity={handleCity} />
+      <p style={{margin: 'auto'}}>Loading data...</p>
       {
         city && (
           isLoading ? (
-            <p style={{margin: 'auto'}}>Loading data...</p>
+            <p style={{marginLeft: 0, marginRight: 0}}>Loading data...</p>
           ) 
           : 
           ( 
             showCard && (
-              <div className={styles['weather-cards']}>
+              <div className='weather-cards'>
                 <WeatherCard weather={temperature} title='Temperature' />
                 <WeatherCard weather={humidity} title='Humidity' />
                 <WeatherCard weather={condition} title='Condition' />
