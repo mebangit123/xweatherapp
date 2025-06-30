@@ -67,7 +67,6 @@ function Weather() {
   return (
     <>
       <Search handleCity={handleCity} />
-      <p style={{margin: 'auto'}}>Loading data...</p>
       {
         city && (
           isLoading ? (
