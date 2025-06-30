@@ -44,8 +44,8 @@ function Weather() {
   }
 
   useEffect(() => {
-    if(city) {
-      setIsloading(true)
+    setIsloading(true)
+    if(city) {      
       axios
       .get(URL, {params: querParams })
       .then((response) => {          
